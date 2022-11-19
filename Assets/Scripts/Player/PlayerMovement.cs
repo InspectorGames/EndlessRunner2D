@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     #region States
     public PlayerVerticalMovementState state;
 
@@ -14,15 +15,21 @@ public class PlayerMovement : MonoBehaviour
     public PlayerFallingState FallingState = new PlayerFallingState();
     public PlayerFastFallingState FastFallingState = new PlayerFastFallingState();
 
-    public PlayerFlyingUpState FlyingUpState = new PlayerFlyingUpState();
-    public PlayerFlyingDownState FlyingDownState = new PlayerFlyingDownState();
-    public PlayerFlyingSmashState FlyingSmashState = new PlayerFlyingSmashState();
-
     public static event Action<PlayerVerticalMovementState> OnPlayerMovementStateEnter;
     public static event Action<PlayerVerticalMovementState> OnPlayerMovementStateExit;
     #endregion
-    [SerializeField] private float currentSpeed = 0;
-    public float CurrentSpeed { get { return currentSpeed; } }
+    [SerializeField] private float maxMinecartFuel;
+    [SerializeField] private float initialMinecartlFuel;
+    [SerializeField] private float drainMult = 1;
+    private float currentMinecartFuel;
+    private bool isInWallPhase = false;
+    [SerializeField] private float maxExcavatorFuel;
+    private float currentExcavatorFuel;
+    [SerializeField] private float minecartSpeed = 0;
+    [SerializeField] private float excavatorSpeed;
+    [SerializeField] private float excavatorMinSpeed;
+    [SerializeField] private float excavatorMaxSpeed;
+    [SerializeField] private float excavatorSpeedBoost;
     [SerializeField] private float maxYJump;
     public float MaxYJump { get { return maxYJump; } }
     [SerializeField] private float jumpingForce;
@@ -33,14 +40,11 @@ public class PlayerMovement : MonoBehaviour
     public float FallingGravity { get { return fallingGravity; } }
     [SerializeField] private float yGround;
     public float YGround { get { return yGround; } }
-    [SerializeField] [Range(0f, 90f)] private float rampAngle;
-    public float RampAngle { get { return rampAngle; } }
-    [SerializeField] private float flyingGravity;
-    public float FlyingGravity { get { return flyingGravity; } }
 
     private void Awake()
     {
         SwitchState(FallingState);
+        currentMinecartFuel = initialMinecartlFuel;
     }
 
     private void Update()
@@ -51,12 +55,97 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.FixedUpdateState(this);
-        HorizontalMovement();
+
+        if (!isInWallPhase)
+        {
+            TrackHorizontalMovement();
+        }
+        else
+        {
+            WallHorizontalMovement();
+        }
     }
 
-    public void HorizontalMovement()
+    public void TrackHorizontalMovement()
     {
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, currentSpeed * Time.fixedDeltaTime);
+        if (currentMinecartFuel <= 0) return;
+        Vector2 nextPos = Vector2.MoveTowards(transform.position, transform.position + transform.right, minecartSpeed * Time.fixedDeltaTime);
+
+        //ConsumeMinecartFuel(Vector2.Distance(transform.position, nextPos));
+        
+        transform.position = nextPos;
+    }
+
+    private void ConsumeMinecartFuel(float distance)
+    {
+        currentMinecartFuel -= distance * drainMult;
+        InGameUI.instance.SetMinecartFuelUI(currentMinecartFuel / maxMinecartFuel);
+    }
+
+    public void WallHorizontalMovement()
+    {
+        if(currentExcavatorFuel <= 0 && currentMinecartFuel <= 0) return;
+        Vector2 nextPos = Vector2.MoveTowards(transform.position, transform.position + transform.right, excavatorSpeed * Time.fixedDeltaTime);
+
+        if(currentExcavatorFuel > 0)
+        {
+            //currentExcavatorFuel -= Time.fixedDeltaTime * 10;
+            InGameUI.instance.SetExcavatorFuelUI(currentExcavatorFuel / maxExcavatorFuel);
+        }
+        else
+        {
+            //currentMinecartFuel -= Time.fixedDeltaTime * 20;
+            InGameUI.instance.SetMinecartFuelUI(currentMinecartFuel / maxMinecartFuel);
+        }
+
+
+        transform.position = nextPos;
+        SpeedSlow();
+    }
+
+    public void EnterWallPhase()
+    {
+        isInWallPhase = true;
+    }
+
+    public void ExitWallPhase()
+    {
+        isInWallPhase = false;
+        currentExcavatorFuel = 0;
+        InGameUI.instance.SetExcavatorFuelUI(currentExcavatorFuel / maxExcavatorFuel);
+    }
+
+    public void AddExcavatorFuel()
+    {
+        if (currentExcavatorFuel >= maxExcavatorFuel) return;
+
+        currentExcavatorFuel += 25;
+        InGameUI.instance.SetExcavatorFuelUI(currentExcavatorFuel / maxExcavatorFuel);
+    }
+    public void AddMinecartFuel()
+    {
+        currentMinecartFuel += GameSettings.instance.fuelCanValue + GameSettings.instance.fuelcanExtra;
+        if (currentMinecartFuel > maxMinecartFuel) currentMinecartFuel = maxMinecartFuel;
+    }
+
+    public void RemoveMinecartFuel()
+    {
+        Debug.Log("Hit Obstacle!");
+        currentMinecartFuel -= GameSettings.instance.fuelCanValue;
+        InGameUI.instance.SetMinecartFuelUI(currentMinecartFuel / maxMinecartFuel);
+        if (currentMinecartFuel < 0) currentMinecartFuel = 0;
+    }
+
+    public void SpeedBoost()
+    {
+        if (excavatorSpeed >= excavatorMaxSpeed) return;
+        excavatorSpeed += excavatorSpeedBoost;
+    }
+
+    private void SpeedSlow()
+    {
+        if (excavatorSpeed < excavatorMinSpeed) return;
+        excavatorSpeed -= Time.deltaTime;
     }
 
     public void StartJump()
@@ -66,7 +155,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void StopJump()
     {
-        Debug.Log("Stop Jump");
         SwitchState(FallingState);
     }
 
@@ -75,16 +163,6 @@ public class PlayerMovement : MonoBehaviour
         SwitchState(FastFallingState);
     }
 
-    public void FlyingSmash()
-    {
-        SwitchState(FlyingSmashState);
-    }
-
-    public void HitFlyingThing()
-    {
-        currentState = FlyingUpState;
-        FlyingUpState.UpImpulse(50);
-    }
 
     #region State Methods
     public void SwitchState(PlayerMovementBaseState state)
@@ -104,17 +182,31 @@ public class PlayerMovement : MonoBehaviour
         OnPlayerMovementStateExit?.Invoke(state);
     }
     #endregion
+
+    private void OnEnable()
+    {
+        Fuel.TakeMinecFuel += AddMinecartFuel;
+        Fuel.TakeExcFuel += AddExcavatorFuel;
+
+        //PlayerCollisions.HitObstacle += RemoveMinecartFuel;
+    }
+
+    private void OnDisable()
+    {
+        Fuel.TakeMinecFuel -= AddMinecartFuel;
+        Fuel.TakeExcFuel -= AddExcavatorFuel;
+
+        //PlayerCollisions.HitObstacle -= RemoveMinecartFuel;
+    }
 }
+
 
 public enum PlayerVerticalMovementState
 {
     InGround,
     Jumping,
     Falling,
-    FastFalling,
-    FlyingUp,
-    FlyingDown,
-    FlyingSmash
+    FastFalling
 }
 
 public abstract class PlayerMovementBaseState
@@ -239,103 +331,6 @@ public class PlayerFastFallingState : PlayerMovementBaseState
         playerMovement.transform.position = Vector2.MoveTowards(playerPosition, new Vector2(playerPosition.x, playerMovement.YGround), playerMovement.MaxFallingVel * Time.fixedDeltaTime);
 
         if (playerMovement.transform.position.y <= playerMovement.YGround) playerMovement.SwitchState(playerMovement.InGroundState);
-    }
-
-    public override void UpdateState(PlayerMovement playerMovement)
-    {
-
-    }
-}
-
-#endregion
-
-#region Flying
-
-public class PlayerFlyingUpState : PlayerMovementBaseState
-{
-    private float verticalSpeed;
-    public override void EnterState(PlayerMovement playerMovement)
-    {
-        verticalSpeed = playerMovement.CurrentSpeed * Mathf.Sin(Mathf.Deg2Rad * playerMovement.RampAngle);
-        playerMovement.state = PlayerVerticalMovementState.FlyingUp;
-        base.EnterState(playerMovement);
-    }
-
-    public override void ExitState(PlayerMovement playerMovement)
-    {
-        base.ExitState(playerMovement);
-    }
-
-    public override void FixedUpdateState(PlayerMovement playerMovement)
-    {
-        Vector3 playerPosition = playerMovement.transform.position;
-
-        playerMovement.transform.position = Vector2.MoveTowards(playerPosition, new Vector2(playerPosition.x, playerPosition.y + 1), verticalSpeed * Time.fixedDeltaTime);
-
-        verticalSpeed -= playerMovement.FlyingGravity * Time.fixedDeltaTime;
-        if (verticalSpeed < 0) playerMovement.SwitchState(playerMovement.FlyingDownState);
-    }
-
-    public override void UpdateState(PlayerMovement playerMovement)
-    {
-
-    }
-
-    public void UpImpulse(float impulse)
-    {
-        verticalSpeed += impulse;
-    }
-}
-
-public class PlayerFlyingDownState : PlayerMovementBaseState
-{
-    private float verticalSpeed;
-    public override void EnterState(PlayerMovement playerMovement)
-    {
-        verticalSpeed = 0;
-        playerMovement.state = PlayerVerticalMovementState.FlyingDown;
-        base.EnterState(playerMovement);
-    }
-
-    public override void ExitState(PlayerMovement playerMovement)
-    {
-        base.ExitState(playerMovement);
-    }
-
-    public override void FixedUpdateState(PlayerMovement playerMovement)
-    {
-        Vector3 playerPosition = playerMovement.transform.position;
-
-        playerMovement.transform.position = Vector2.MoveTowards(playerPosition, new Vector2(playerPosition.x, playerPosition.y + 1), verticalSpeed * Time.fixedDeltaTime);
-
-        verticalSpeed -= playerMovement.FlyingGravity * Time.fixedDeltaTime;
-    }
-
-    public override void UpdateState(PlayerMovement playerMovement)
-    {
-
-    }
-}
-
-public class PlayerFlyingSmashState : PlayerMovementBaseState
-{
-    public override void EnterState(PlayerMovement playerMovement)
-    {
-        playerMovement.state = PlayerVerticalMovementState.FlyingSmash;
-        base.EnterState(playerMovement);
-    }
-
-    public override void ExitState(PlayerMovement playerMovement)
-    {
-        base.ExitState(playerMovement);
-    }
-
-    public override void FixedUpdateState(PlayerMovement playerMovement)
-    {
-        Vector3 playerPosition = playerMovement.transform.position;
-
-        playerMovement.transform.position = Vector2.MoveTowards(playerPosition, new Vector2(playerPosition.x, playerPosition.y + 1), playerMovement.MaxFallingVel * Time.fixedDeltaTime);
-
     }
 
     public override void UpdateState(PlayerMovement playerMovement)
