@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BindingManager : MonoBehaviour
 {
+    private static BindingManager instance;
+    public static BindingManager Instance { get { return instance; } }
+
     [SerializeField] private PlayerMovement playerMovement;
 
     private Action TrackActionStarted;
@@ -11,9 +14,19 @@ public class BindingManager : MonoBehaviour
 
     private Action WallActionStarted;
     private Action WallActionCanceled;
-    
+
+    private bool playerInput = true;
 
     private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
+
+    private void OnEnable()
     {
         PlayerMovement.OnPlayerMovementStateEnter += OnPlayerMovementStateEnter;
         PlayerMovement.OnPlayerMovementStateExit += OnPlayerMovementStateExit;
@@ -22,23 +35,41 @@ public class BindingManager : MonoBehaviour
         GameManager.OnGameStateExit += OnGameStateExit;
     }
 
+    private void OnDisable()
+    {
+        PlayerMovement.OnPlayerMovementStateEnter -= OnPlayerMovementStateEnter;
+        PlayerMovement.OnPlayerMovementStateExit -= OnPlayerMovementStateExit;
+
+        GameManager.OnGameStateEnter -= OnGameStateEnter;
+        GameManager.OnGameStateExit -= OnGameStateExit;
+    }
+
+    public void PlayerInput(bool playerInput)
+    {
+        this.playerInput = playerInput;
+    }
+
     private void TActionStarted()
     {
+        if (!playerInput) return;
         TrackActionStarted?.Invoke();
     }
 
     private void TActionCanceled()
     {
+        if (!playerInput) return;
         TrackActionCanceled?.Invoke();
     }
 
     private void WActionStarted()
     {
+        if (!playerInput) return;
         WallActionStarted?.Invoke();
     }
     
     private void WActionCanceled()
     {
+        if (!playerInput) return;
         WallActionCanceled?.Invoke();
     }
 
@@ -47,12 +78,14 @@ public class BindingManager : MonoBehaviour
         switch (newState)
         {
             case GameState.Track:
-                InputManager.OnActionStarted += TActionStarted;
-                InputManager.OnActionCanceled += TActionCanceled;
+                InputManager.OnJumpStarted += TActionStarted;
+                InputManager.OnJumpCanceled += TActionCanceled;
+
+                InputManager.OnConsumeFuelStarted += playerMovement.ConsumeExcavatorFuel;
                 break;
             case GameState.Wall:
-                InputManager.OnActionStarted += WActionStarted;
-                InputManager.OnActionCanceled += WActionCanceled;
+                InputManager.OnJumpStarted += WActionStarted;
+                InputManager.OnJumpCanceled += WActionCanceled;
 
                 WallActionStarted += playerMovement.SpeedBoost;
                 break;
@@ -64,12 +97,14 @@ public class BindingManager : MonoBehaviour
         switch (newState)
         {
             case GameState.Track:
-                InputManager.OnActionStarted -= TActionStarted;
-                InputManager.OnActionCanceled -= TActionCanceled;
+                InputManager.OnJumpStarted -= TActionStarted;
+                InputManager.OnJumpCanceled -= TActionCanceled;
+
+                InputManager.OnConsumeFuelStarted -= playerMovement.ConsumeExcavatorFuel;
                 break;
             case GameState.Wall:
-                InputManager.OnActionStarted -= WActionStarted;
-                InputManager.OnActionCanceled -= WActionCanceled;
+                InputManager.OnJumpStarted -= WActionStarted;
+                InputManager.OnJumpCanceled -= WActionCanceled;
 
                 WallActionStarted -= playerMovement.SpeedBoost;
                 break;

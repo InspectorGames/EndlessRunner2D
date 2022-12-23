@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -698,6 +698,7 @@ PlayerSettings:
   ps4videoRecordingFeaturesUsed: 0
   ps4contentSearchFeaturesUsed: 0
   ps4CompatibilityPS5: 0
+  ps4AllowPS5Detection: 0
   ps4GPU800MHz: 1
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
@@ -722,7 +723,23 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: INPUT_SYSTEM_PACKAGE;AMPLIFY_SHADER_EDITOR
+    EmbeddedLinux: INPUT_SYSTEM_PACKAGE
+    GameCoreScarlett: INPUT_SYSTEM_PACKAGE
+    GameCoreXboxOne: INPUT_SYSTEM_PACKAGE
+    LinuxHeadlessSimulation: INPUT_SYSTEM_PACKAGE
+    Lumin: INPUT_SYSTEM_PACKAGE
+    Nintendo Switch: INPUT_SYSTEM_PACKAGE
+    PS4: INPUT_SYSTEM_PACKAGE
+    PS5: INPUT_SYSTEM_PACKAGE
+    Stadia: INPUT_SYSTEM_PACKAGE
+    Standalone: INPUT_SYSTEM_PACKAGE
+    WebGL: INPUT_SYSTEM_PACKAGE
+    Windows Store Apps: INPUT_SYSTEM_PACKAGE
+    XboxOne: INPUT_SYSTEM_PACKAGE
+    iPhone: INPUT_SYSTEM_PACKAGE
+    tvOS: INPUT_SYSTEM_PACKAGE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

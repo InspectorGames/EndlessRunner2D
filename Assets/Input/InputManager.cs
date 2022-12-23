@@ -6,19 +6,63 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public static Action OnActionStarted;
-    public static Action OnActionCanceled;
+    public static Action OnJumpStarted;
+    public static Action OnJumpCanceled;
 
-    public void OnAction(InputAction.CallbackContext ctx)
+    public static Action OnConsumeFuelStarted;
+
+    [SerializeField] private ButtonScript jumpButton;
+    [SerializeField] private ButtonScript fuelButton;
+
+    private void OnEnable()
+    {
+        jumpButton.PointerDown += JumpStarted;
+        jumpButton.PointerUp += JumpCanceled;
+
+        fuelButton.PointerDown += ConsumeFuel;
+    }
+
+    private void OnDisable()
+    {
+        jumpButton.PointerDown -= JumpStarted;
+        jumpButton.PointerUp -= JumpCanceled;
+
+        fuelButton.PointerDown -= ConsumeFuel;
+    }
+
+    private void JumpStarted()
+    {
+        OnJumpStarted?.Invoke();
+    }
+
+    private void JumpCanceled()
+    {
+        OnJumpCanceled?.Invoke();
+    }
+
+    private void ConsumeFuel()
+    {
+        OnConsumeFuelStarted?.Invoke();
+    }
+
+    public void OnJump(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
         {
-            OnActionStarted?.Invoke();
+            JumpStarted();
         }
 
         if (ctx.canceled)
         {
-            OnActionCanceled?.Invoke();
+            JumpCanceled();
+        }
+    }
+
+    public void OnConsumeFuel(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started)
+        {
+            ConsumeFuel();
         }
     }
 }
