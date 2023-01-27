@@ -21,7 +21,7 @@ public class MapGenerator : MonoBehaviour
 
     [Header("Obstacles")]
     [SerializeField] private List<ObstacleSO> groundObstacles;
-    [SerializeField] private List<ObstacleSO> airObstacles;
+    //[SerializeField] private List<ObstacleSO> airObstacles;
     [SerializeField] private List<ObstacleSO> topDownObstacles;
 
     [Space]
@@ -42,6 +42,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private Tile dirtTile;
     [SerializeField] private GameObject pfMFuel;
     [SerializeField] private GameObject pfEFuel;
+    [SerializeField] private GameObject excavatorItem;
 
     [Space]
 
@@ -63,7 +64,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] private int maxGroundObstacleHeight; //It will be rounded to pair
     [SerializeField] [Range(0, 10)] private int groundObstacleProb;
     [SerializeField] [Range(0, 10)] private int topDownObstacleProb;
-    [SerializeField] [Range(0, 10)] private int airObstacleProb;
+    //[SerializeField] [Range(0, 10)] private int airObstacleProb;
 
     [Space]
 
@@ -75,8 +76,10 @@ public class MapGenerator : MonoBehaviour
 
     [Header("Excavator Fuel Generation Settings")]
     [SerializeField] private int minEFuel;
+    [SerializeField] private int maxEFuel;
+    private int currentEFuel;
 
-    public void GenerateMap(int startingX, int trackLength, bool makeHarder = false)
+    public void GenerateMap(int startingX, int trackLength, int excavatorPos, bool makeHarder = false)
     {
         //testTilemap.ClearAllTiles();
         ClearAllMapObjects();
@@ -109,6 +112,8 @@ public class MapGenerator : MonoBehaviour
                 minObstacleSeparationRange = minimumMinObstacleSeparation;
             }
         }
+
+        mapObjects.Add(Instantiate(excavatorItem, new Vector3(excavatorPos, 1), Quaternion.identity));
 
         Pass_Obstacles(trackLength);
         Pass_EFuel_Positions(trackLength);
@@ -183,16 +188,16 @@ public class MapGenerator : MonoBehaviour
                     obstacle = groundObstacles[Random.Range(0, groundObstacles.Count)];
                     keyPos = obstacle.keyPos;
                     break;
-                case ObstacleType.Air:
-                    obstacle = airObstacles[Random.Range(0, airObstacles.Count)];
-                    verticalPosition = keyPositions[Random.Range(0, keyPositions.Count)];
+                //case ObstacleType.Air:
+                //    obstacle = airObstacles[Random.Range(0, airObstacles.Count)];
+                //    verticalPosition = keyPositions[Random.Range(0, keyPositions.Count)];
 
-                    for(int i = verticalPosition; i < obstacle.size + verticalPosition; i++)
-                    {
-                        if (keyPositions.Contains(i)) keyPos.Add(i);
-                    }
+                //    for(int i = verticalPosition; i < obstacle.size + verticalPosition; i++)
+                //    {
+                //        if (keyPositions.Contains(i)) keyPos.Add(i);
+                //    }
 
-                    break;
+                //    break;
                 case ObstacleType.TopDown:
                     obstacle = topDownObstacles[Random.Range(0, topDownObstacles.Count)];
                     keyPos = obstacle.keyPos;
@@ -215,10 +220,10 @@ public class MapGenerator : MonoBehaviour
             types.Add(ObstacleType.Ground);
         }
 
-        for (int i = 0; i < airObstacleProb; i++)
-        {
-            types.Add(ObstacleType.Air);
-        }
+        //for (int i = 0; i < airObstacleProb; i++)
+        //{
+        //    types.Add(ObstacleType.Air);
+        //}
 
         for (int i = 0; i < topDownObstacleProb; i++)
         {
@@ -230,11 +235,12 @@ public class MapGenerator : MonoBehaviour
 
     private void Pass_EFuel_Positions(int horizontalMapSize)
     {
-        int stepDistance = horizontalMapSize / minEFuel;
+        currentEFuel = Random.Range(minEFuel, maxEFuel);
+        int stepDistance = horizontalMapSize / currentEFuel;
 
         int minDistance = 0;
         int maxDistance = stepDistance;
-        for (int i = 0; i < minEFuel; i++)
+        for (int i = 0; i < currentEFuel; i++)
         {
             int position = Random.Range(minDistance, maxDistance);
             if (position % 2 != 0) position++; 

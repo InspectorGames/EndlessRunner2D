@@ -10,7 +10,8 @@ public class PlayerCollisions : MonoBehaviour
         {
             case "Obstacle":
                 EventManager.OnObstacleHitted();
-                collision.gameObject.SetActive(false);
+                collision.GetComponentInChildren<Animator>().Play("Hit");
+                collision.tag = "HittedObstacle";
                 break;
             case "MFuel":
                 EventManager.OnMinecartFuelCollected();
@@ -19,6 +20,10 @@ public class PlayerCollisions : MonoBehaviour
             case "EFuel":
                 EventManager.OnExcavatorFuelCollected();
                 collision.gameObject.SetActive(false);  
+                break;
+            case "Excavator":
+                EventManager.OnPlayerGetExcavator();
+                collision.gameObject.SetActive(false);
                 break;
         }
     }

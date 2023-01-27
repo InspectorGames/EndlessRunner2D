@@ -32,5 +32,9 @@ MonoBehaviour:
       Name: Exit
     - Category: Pause
       Name: Play
+    - Category: Pause
+      Name: Restart
     - Category: Settings
       Name: Back
+    - Category: Tutorial
+      Name: Ok

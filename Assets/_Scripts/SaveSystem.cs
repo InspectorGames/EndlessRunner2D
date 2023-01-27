@@ -19,6 +19,7 @@ public static class SaveSystem
     public static GameRecordData LoadGameRecord()
     {
         string path = Application.persistentDataPath + "/gameRecord.insp";
+        Debug.Log("Loading from " + path);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();

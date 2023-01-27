@@ -26,3 +26,25 @@ MonoBehaviour:
       Name: Settings
     - Category: None
       Name: None
+    - Category: Start
+      Name: Splash
+    - Category: Tutorial
+      Name: EndTutorial
+    - Category: Tutorial
+      Name: ExplainBars
+    - Category: Tutorial
+      Name: ExplainExcavatorFuel
+    - Category: Tutorial
+      Name: ExplainFastFall
+    - Category: Tutorial
+      Name: ExplainJump
+    - Category: Tutorial
+      Name: ExplainMinecartFuel
+    - Category: Tutorial
+      Name: ExplainObstacle
+    - Category: Tutorial
+      Name: ExplainUseExcavatorFuel
+    - Category: Tutorial
+      Name: ExplainWall
+    - Category: Tutorial
+      Name: Start

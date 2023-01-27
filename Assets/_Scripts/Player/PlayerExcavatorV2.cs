@@ -10,13 +10,17 @@ public class PlayerExcavatorV2 : MonoBehaviour
     private void OnEnable()
     {
         EventManager.EnterWall.Enqueue(10, SpawnEffect);
-        EventManager.EnterTrack.Enqueue(10, DestroyEffect);
+        EventManager.Track += DestroyEffect;
+        EventManager.MainMenuLoaded += DestroyEffect;
+        EventManager.GameRestarted += DestroyEffect;
     }
 
     private void OnDisable()
     {
         EventManager.EnterWall.Dequeue(10);
-        EventManager.EnterTrack.Dequeue(10);
+        EventManager.Track -= DestroyEffect;
+        EventManager.MainMenuLoaded -= DestroyEffect;
+        EventManager.GameRestarted -= DestroyEffect;
     }
 
     private void SpawnEffect()
@@ -28,5 +32,15 @@ public class PlayerExcavatorV2 : MonoBehaviour
     private void DestroyEffect()
     {
         Destroy(instatiatedEffect);
+    }
+
+    public void SpawnEffectTutorial()
+    {
+        SpawnEffect();
+    }
+
+    public void DestroyEffectTutorial()
+    {
+        DestroyEffect();
     }
 }

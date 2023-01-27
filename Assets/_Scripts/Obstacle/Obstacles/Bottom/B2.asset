@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba06f01a544b6d45883587d9ba80afa, type: 3}
   m_Name: B2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6760612388069492080, guid: 973d82eca5c66ae4992fc079518d0783, type: 3}
+  prefab: {fileID: 6760612388069492080, guid: 1f6ce9bf4b0cb2f4eb48b8a7e4e0acbd, type: 3}
   keyPos: 01000000
+  size: 0

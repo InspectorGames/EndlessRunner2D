@@ -18,7 +18,11 @@ public class PlayerMovement : MonoBehaviour
     public static event Action<PlayerVerticalMovementState> OnPlayerMovementStateEnter;
     public static event Action<PlayerVerticalMovementState> OnPlayerMovementStateExit;
     #endregion
-    
+
+    [Header("Game Over")]
+    [SerializeField] private float gameOverSeconds;
+    private float gameOverTimer;
+
     [Header("Jump Stats")]
     
     [SerializeField] private float maxYJump;
@@ -60,16 +64,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float excavatorRequiredSpeed;
     [SerializeField] private float excavatorSpeedBoost;
     [SerializeField] private float excavatorDeceleration;
+    [SerializeField] private GameObject excavator;
+    [SerializeField] private Animator cloud;
 
 
     [Min(0)] private float currentSpeed;
-
     private bool isInWallPhase = false;
+    private bool soundEffects = false;
+    private bool canPlayNoFuelSFX = true;
+    private bool canGameOver = true;
     private bool canMove = false;
     private float wallMult = 100;
+    private bool isTutorial = false;
+    private bool isRestarting = false;
     private void Awake()
     {
-        SwitchState(FallingState);
+        SwitchState(InGroundState);
         currentMinecartFuel = initialMinecartFuel;
         currentSpeed = initialMinecartSpeed;
     }
@@ -81,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        currentSpeed = Mathf.Clamp(currentSpeed, 0, 100);
         currentState.FixedUpdateState(this);
         CheckGameOver();
 
@@ -93,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
         {
             WallHorizontalMovement();
         }
+    }
+
+    public void SetIsTutorial(bool value)
+    {
+        isTutorial = value;
     }
 
     public void TrackHorizontalMovement()
@@ -137,7 +153,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void EnterWallPhase()
     {
-        currentSpeed = initialExcavatorSpeed;
+        if (isTutorial)
+        {
+            currentSpeed = excavatorMaxSpeed;
+        }
+        else
+        {
+            currentSpeed = initialExcavatorSpeed;
+        }
+
         isInWallPhase = true;
         StopConsumingMFuel(false);
         CalculateExcavatorFuel();
@@ -145,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ExitWallPhase()
     {
+        HideExcavatorEffect();
         currentSpeed = initialMinecartSpeed;
         isInWallPhase = false;
         currentExcavatorFuel = 0;
@@ -160,13 +185,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddExcavatorFuel()
     {
-        if (currentExcavatorFuelCans >= maxExcavatorFuelCans && !hasExtraExcavatorFuel)
+        if (currentExcavatorFuelCans >= maxExcavatorFuelCans)
         {
             hasExtraExcavatorFuel = true;
+            AudioManager.instance.PlaySFX("pickupfuel");
         }
         else
         {
             currentExcavatorFuelCans += 1;
+            AudioManager.instance.PlaySFX("pickupfuel");
         }
     }
 
@@ -174,12 +201,14 @@ public class PlayerMovement : MonoBehaviour
     {
         currentMinecartFuel += GameSettings.instance.fuelCanValue;
         if (currentMinecartFuel > maxMinecartFuel) currentMinecartFuel = maxMinecartFuel;
+        AudioManager.instance.PlaySFX("pickupfuel");
     }
 
     public void AddMinecartFuel(float value)
     {
         currentMinecartFuel += value;
         if (currentMinecartFuel > maxMinecartFuel) currentMinecartFuel = maxMinecartFuel;
+        AudioManager.instance.PlaySFX("usefuel");
     }
 
     public void RemoveMinecartFuel()
@@ -198,9 +227,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedSlow()
     {
-        if(currentSpeed < 0)
+        if (isTutorial) return;
+        if(currentSpeed <= 0)
         {
             currentSpeed = 0;
+            if (canPlayNoFuelSFX)
+            {
+                AudioManager.instance.PlaySFX("nofuel");
+                canPlayNoFuelSFX = false;
+            }
+        }
+        else
+        {
+            canPlayNoFuelSFX = true;
         }
 
         if (!isInWallPhase) // Track Phase
@@ -212,7 +251,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else //Wall Phase
         {
-            if(currentExcavatorFuel <= 0 && currentMinecartFuel <= 0)
+            if(currentExcavatorFuel <= 0 && currentMinecartFuel <= 0 && currentSpeed > 0)
             {
                 currentSpeed -= Time.fixedDeltaTime * excavatorDeceleration;
             }
@@ -225,21 +264,33 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
 
-    public void ResetPlayerMovement()
+    public void ResetPlayerMovement(Vector2 position)
     {
         //Reset all variables to their initial values
         isInWallPhase = false;
         stopConsumingMFuel = false;
         hasExtraExcavatorFuel = false;
         canMove = false;
+        canGameOver = true;
+        isRestarting = false;
 
-        transform.position = Vector3.up;
+        if (position != Vector2.zero)
+        {
+            transform.position = position;
+        }
+        else
+        {
+            transform.position = Vector3.up;
+        }
 
         currentMinecartFuel = initialMinecartFuel;
         currentSpeed = initialMinecartSpeed;
         currentExcavatorFuel = 0;
         currentExcavatorFuelCans = 0;
-        
+
+        gameOverTimer = gameOverSeconds;
+
+
         SwitchState(FallingState);
     }
 
@@ -277,6 +328,10 @@ public class PlayerMovement : MonoBehaviour
     public void StopConsumingMFuel(bool consume)
     {
         stopConsumingMFuel = consume;
+        if(currentMinecartFuel <= 0)
+        {
+            currentMinecartFuel = 1;
+        } 
     }
 
     public float GetVerticalVelocity()
@@ -294,7 +349,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(currentState != null) currentState.ExitState(this);
         currentState = state;
+        PlayerVerticalMovementState oldState = this.state;
         currentState.EnterState(this);
+        PlayStateEffects(oldState, this.state);
     }
 
     public void EnterState()
@@ -310,10 +367,30 @@ public class PlayerMovement : MonoBehaviour
     
     public void CheckGameOver()
     {
-        if(currentSpeed <= 0 && !hasExtraExcavatorFuel && currentExcavatorFuelCans <= 0)
+        if (!canGameOver || isRestarting) return;
+        //if(currentSpeed <= 0 && !hasExtraExcavatorFuel && currentExcavatorFuelCans <= 0)
+        if(currentSpeed <= 0)
         {
-            EventManager.OnGameOver();
+            if(gameOverTimer >= gameOverSeconds)
+            {
+                EventManager.OnGameOverCountdownStarted();
+            }
+            gameOverTimer -= Time.deltaTime;
+            if(gameOverTimer <= 0)
+            {
+                EventManager.OnGameOver();
+                canGameOver = false;
+            }
         }
+        else
+        {
+            gameOverTimer = gameOverSeconds;
+            EventManager.OnGameOverCountdownStopped();
+        }
+    }
+    private void PlayerRestarting()
+    {
+        isRestarting = true;
     }
 
     public void CalculateWallMultiplier(float wallLength)
@@ -351,6 +428,64 @@ public class PlayerMovement : MonoBehaviour
         return hasExtraExcavatorFuel;
     }
 
+    public void TutorialJump()
+    {
+        SwitchState(JumpingState);
+    }
+
+    public void TutorialFastFall()
+    {
+        SwitchState(FastFallingState);
+    }
+
+    public void TutorialUseExcavatorFuel()
+    {
+        ConsumeExcavatorFuel();
+    }
+
+    private void PlayStateEffects(PlayerVerticalMovementState oldState, PlayerVerticalMovementState newState)
+    {
+        if (!soundEffects) return;
+        switch (newState)
+        {
+            case PlayerVerticalMovementState.InGround:
+                AudioManager.instance.PlaySFX("land");
+                if(oldState == PlayerVerticalMovementState.FastFalling)
+                {
+                    EventManager.OnPlayerlandHard();
+                }
+                else
+                {
+                    EventManager.OnPlayerland();
+                }
+                break;
+            case PlayerVerticalMovementState.Jumping:
+                AudioManager.instance.PlaySFX("jump");
+                break;
+        }
+    }
+
+    public void EnablePlayerMovementSFX(bool value)
+    {
+        soundEffects = value;
+    }
+
+    public void ShowExcavatorEffect()
+    {
+        excavator.SetActive(true);
+        CloudExplode();
+    }
+
+    public void HideExcavatorEffect()
+    {
+        excavator.SetActive(false);
+    }
+
+    private void CloudExplode()
+    {
+        cloud.Play("CloudExplode");
+    }
+
     private void OnEnable()
     {
         EventManager.Wall.Enqueue(0, EnterWallPhase);
@@ -360,6 +495,11 @@ public class PlayerMovement : MonoBehaviour
         //EventManager.ExcavatorFuelCollected += AddExcavatorFuel;
         EventManager.ExcavatorFuelCollected.Enqueue(0, AddExcavatorFuel);
         EventManager.ObstacleHitted += RemoveMinecartFuel;
+        EventManager.PlayerGetExcavator += ShowExcavatorEffect;
+        EventManager.MainMenuLoaded += HideExcavatorEffect;
+        EventManager.GameRestarted += HideExcavatorEffect;
+        EventManager.GameRestarting += PlayerRestarting;
+        EventManager.EnterTrack.Enqueue(-1, CloudExplode);
     }
 
     private void OnDisable()
@@ -371,6 +511,11 @@ public class PlayerMovement : MonoBehaviour
         //EventManager.ExcavatorFuelCollected -= AddExcavatorFuel;
         EventManager.ExcavatorFuelCollected.Dequeue(0);
         EventManager.ObstacleHitted -= RemoveMinecartFuel;
+        EventManager.PlayerGetExcavator -= ShowExcavatorEffect;
+        EventManager.MainMenuLoaded -= HideExcavatorEffect;
+        EventManager.GameRestarted -= HideExcavatorEffect;
+        EventManager.GameRestarting -= PlayerRestarting;
+        EventManager.EnterTrack.Dequeue(-1);
     }
 }
 

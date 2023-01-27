@@ -8,6 +8,8 @@ TagManager:
   - EFuel
   - MFuel
   - Motor
+  - Excavator
+  - HittedObstacle
   layers:
   - Default
   - TransparentFX

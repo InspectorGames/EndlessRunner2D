@@ -1,0 +1,509 @@
+fileFormatVersion: 2
+guid: 9220cf715173b954ea6d673c0b820c09
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cloudAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1175
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f9a13ab0ffee74585e911e5b574503
+      internalID: 1546932606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 1140
+        width: 133
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7f08b45035fd524cad347f648f2f8d5
+      internalID: 1614827169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 1084
+        width: 259
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd66dbaa2a54cb4bb6a30d505cf20bc
+      internalID: -1027757992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 1935
+        y: 1052
+        width: 320
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc04e7206767e34ba12859b839c11fa
+      internalID: -1018318400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 2531
+        y: 1054
+        width: 319
+        height: 297
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26fbc2e151e2c5141aeabec4ccba279e
+      internalID: -1998184234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 3099
+        y: 1021
+        width: 389
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5af8c72a838e846b8a2e54d1f563c7
+      internalID: -656635635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 541
+        width: 388
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f45f22dab5d9de4899eb5d47af28f0a
+      internalID: -1002330816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 515
+        width: 435
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dec7de5c34a9a745ad599f362c36fbd
+      internalID: 1567512218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 513
+        width: 435
+        height: 419
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57ffd28331a5be4448403d1f6f31a7b0
+      internalID: -1825867888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 494
+        width: 472
+        height: 458
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476618beb669c674a853a05f336e58fd
+      internalID: -1110225914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 2460
+        y: 495
+        width: 474
+        height: 457
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eda50f0f62f2224db800a2b7449f647
+      internalID: 1065755849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 3045
+        y: 486
+        width: 505
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e231ce1bba2d4fd40988c052ce9fa301
+      internalID: -1338332583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 6
+        width: 506
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f95628df0e4f648b122620cf466472
+      internalID: 446271755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 28
+        width: 523
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed3fb6bf683e70498dddda284fa0fcb
+      internalID: 1582582504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      cloudAnimation_3: -1018318400
+      cloudAnimation_1: 1614827169
+      cloudAnimation_18: -1460421681
+      cloudAnimation_41: -1405289702
+      cloudAnimation_33: -1983412012
+      cloudAnimation_21: 1454432752
+      cloudAnimation_46: -32156750
+      cloudAnimation_10: 1065755849
+      cloudAnimation_62: 1304194426
+      cloudAnimation_54: -919980341
+      cloudAnimation_24: 229414139
+      cloudAnimation_43: 1947145231
+      cloudAnimation_55: -133213465
+      cloudAnimation_20: 436989706
+      cloudAnimation_36: -151952987
+      cloudAnimation_48: 443319054
+      cloudAnimation_17: 409301489
+      cloudAnimation_51: 1357025302
+      cloudAnimation_52: 910729417
+      cloudAnimation_64: 1725301125
+      cloudAnimation_6: -1002330816
+      cloudAnimation_25: -991844164
+      cloudAnimation_61: -1255456811
+      cloudAnimation_63: 638761833
+      cloudAnimation_9: -1110225914
+      cloudAnimation_7: 1567512218
+      cloudAnimation_37: -935054955
+      cloudAnimation_28: -231228946
+      cloudAnimation_66: -1696036463
+      cloudAnimation_2: -1027757992
+      cloudAnimation_49: 1902292645
+      cloudAnimation_56: -714159931
+      cloudAnimation_5: -656635635
+      cloudAnimation_31: -1798250525
+      cloudAnimation_4: -1998184234
+      cloudAnimation_44: -218517011
+      cloudAnimation_29: -511233059
+      cloudAnimation_23: 2063203455
+      cloudAnimation_35: 851494018
+      cloudAnimation_47: 115403935
+      cloudAnimation_13: 1582582504
+      cloudAnimation_30: 1891228926
+      cloudAnimation_53: -214586854
+      cloudAnimation_15: 1147154287
+      cloudAnimation_34: -343004604
+      cloudAnimation_50: 1966879808
+      cloudAnimation_8: -1825867888
+      cloudAnimation_12: 446271755
+      cloudAnimation_38: -1315052493
+      cloudAnimation_22: -25143723
+      cloudAnimation_40: -322897319
+      cloudAnimation_67: 1975422269
+      cloudAnimation_39: -1027897439
+      cloudAnimation_0: 1546932606
+      cloudAnimation_32: 1276719873
+      cloudAnimation_11: -1338332583
+      cloudAnimation_26: 1936429910
+      cloudAnimation_60: 280324
+      cloudAnimation_14: 851894647
+      cloudAnimation_45: 778631699
+      cloudAnimation_42: -1160040748
+      cloudAnimation_19: -1184423794
+      cloudAnimation_27: 1801504110
+      cloudAnimation_57: -1163249672
+      cloudAnimation_59: 1341321491
+      cloudAnimation_16: -1640562096
+      cloudAnimation_65: 1070062271
+      cloudAnimation_58: -541812107
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

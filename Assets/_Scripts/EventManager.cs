@@ -7,21 +7,33 @@ using UnityEngine.Events;
 public static class EventManager
 {
     //Game Flow
+    public static event UnityAction PauseMenuLoaded;
     public static event UnityAction MainMenuLoaded;
     public static event UnityAction GameStarted;
+    public static event UnityAction Track;
     public static PriorityActionQueue EnterWall = new PriorityActionQueue();
     public static PriorityActionQueue Wall = new PriorityActionQueue();
     public static PriorityActionQueue EnterTrack = new PriorityActionQueue();
     public static event UnityAction GameOver;
+    public static event UnityAction GameRestarting;
     public static event UnityAction GameRestarted;
+    public static event UnityAction GameOverCountdownStarted;
+    public static event UnityAction GameOverCountdownStopped;
+    public static event UnityAction NewRecord;
 
     public static void OnMainMenuLoaded() => MainMenuLoaded?.Invoke();
+    public static void OnPauseMenuLoaded() => PauseMenuLoaded?.Invoke();
     public static void OnGameStarted() => GameStarted?.Invoke();
+    public static void OnTrack() => Track?.Invoke();
     public static void OnEnterWall() => EnterWall?.Invoke();
     public static void OnWall() => Wall?.Invoke();
     public static void OnEnterTrack() => EnterTrack?.Invoke();
     public static void OnGameOver() => GameOver?.Invoke();
+    public static void OnGameRestarting() => GameRestarting?.Invoke();
     public static void OnGameRestarted() => GameRestarted.Invoke();
+    public static void OnGameOverCountdownStarted() => GameOverCountdownStarted?.Invoke();
+    public static void OnGameOverCountdownStopped() => GameOverCountdownStopped?.Invoke();
+    public static void OnNewRecord() => NewRecord?.Invoke();
 
     //Minecart Fuel
     public static event UnityAction MinecartFuelCollected;
@@ -43,6 +55,14 @@ public static class EventManager
     //Collisions
     public static event UnityAction ObstacleHitted;
     public static void OnObstacleHitted() => ObstacleHitted?.Invoke();
+
+    //Player
+    public static event UnityAction PlayerLand;
+    public static void OnPlayerland() => PlayerLand?.Invoke();
+    public static event UnityAction PlayerLandHard;
+    public static void OnPlayerlandHard() => PlayerLandHard?.Invoke();
+    public static event UnityAction PlayerGetExcavator;
+    public static void OnPlayerGetExcavator() => PlayerGetExcavator?.Invoke();
 }
 
 public class PriorityActionQueue

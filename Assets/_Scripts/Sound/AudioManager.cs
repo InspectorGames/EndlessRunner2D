@@ -9,12 +9,15 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     // Audio sources
-    public AudioSource sfxSource;
+    public GameObject sfxSourcePf;
     public AudioSource musicSource;
+    public AudioLowPassFilter musicLowPass;
 
     // Audio clips
-    public AudioClip[] sfxClips;
+    public CustomizableAudioClip[] sfxClips;
     public AudioClip[] musicClips;
+
+    private bool muteSFX = false;
 
     void Awake()
     {
@@ -32,14 +35,20 @@ public class AudioManager : MonoBehaviour
     // Método para reproducir un efecto de sonido
     public void PlaySFX(string clipName)
     {
+        if(muteSFX) return;
         // Buscar el clip de audio en el array de clips
-        AudioClip clip = Array.Find(sfxClips, audio => audio.name == clipName);
+        CustomizableAudioClip customAudioClip = Array.Find(sfxClips, audio => audio.clip.name == clipName);
 
         // Comprobar si se ha encontrado el clip
-        if (clip != null)
+        if (customAudioClip != null)
         {
             // Reproducir el clip
-            sfxSource.PlayOneShot(clip);
+            GameObject audioSource = Instantiate(sfxSourcePf, transform.position, Quaternion.identity, transform);
+            audioSource.name = "SFX (" + clipName +")";
+            AudioSource source = audioSource.GetComponent<AudioSource>();
+            source.volume = customAudioClip.volume;
+            source.PlayOneShot(customAudioClip.clip);
+            Destroy(audioSource, customAudioClip.clip.length);
         }
         else
         {
@@ -47,10 +56,18 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void MuteSFX(bool mute)
+    {
+        muteSFX = mute;
+    }
+
     public void PlaySFX(AudioClip clip)
     {
-        // Reproducir el clip
-        sfxSource.PlayOneShot(clip);
+        if (muteSFX) return;
+        GameObject audioSource = Instantiate(sfxSourcePf, transform.position, Quaternion.identity, transform);
+        audioSource.name = "SFX (" + clip.name + ")";
+        audioSource.GetComponent<AudioSource>().PlayOneShot(clip);
+        Destroy(audioSource, clip.length);
     }
 
     // Método para reproducir música
@@ -76,4 +93,32 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.Stop();
     }
+
+    public void MuteMusic(bool value)
+    {
+        musicSource.mute = value;
+    }
+
+    public void SetCutOffFrequencyMusic(float value)
+    {
+        musicLowPass.cutoffFrequency = value;
+    }
+
+    public bool IsSFXMuted()
+    {
+        return muteSFX;
+    }
+
+    public bool IsMusicMuted()
+    {
+        return musicSource.mute;
+    }
+}
+
+[System.Serializable]
+public class CustomizableAudioClip
+{
+    public AudioClip clip;
+    [Range(0f, 1f)]
+    public float volume = 1;
 }

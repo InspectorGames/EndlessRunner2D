@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: UIToggleIdDatabase
   m_EditorClassIdentifier: 
   Database:
-    Items: []
+    Items:
+    - Category: Audio
+      Name: Music
+    - Category: Audio
+      Name: SFX
+    - Category: None
+      Name: None

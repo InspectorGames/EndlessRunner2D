@@ -4,8 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - sfx: {fileID: 8300000, guid: 0493112bc03ac7849806abd42fe6cdc0, type: 3}
-  - button: {instanceID: 0}
+  - sfx: {fileID: 8300000, guid: f6cbe87a77eec594d822afc2d2e9ac86, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

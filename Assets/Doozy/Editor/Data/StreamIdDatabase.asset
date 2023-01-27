@@ -15,12 +15,46 @@ MonoBehaviour:
   Database:
     Items:
     - Category: GameOver
+      Name: BackToMainMenuAnimEnded
+    - Category: GameOver
       Name: RestartGame
     - Category: InGame
       Name: GameOver
     - Category: InGame
       Name: MainMenu
+    - Category: InGame
+      Name: Pause
+    - Category: MainMenu
+      Name: AnimEnterGameEnded
     - Category: MainMenu
       Name: Play
+    - Category: MainMenu
+      Name: PlayAnimEnterGame
     - Category: None
       Name: None
+    - Category: Start
+      Name: LoadScene
+    - Category: Tutorial
+      Name: Bars
+    - Category: Tutorial
+      Name: EndTutorial
+    - Category: Tutorial
+      Name: ExcavatorFuel
+    - Category: Tutorial
+      Name: FastFall
+    - Category: Tutorial
+      Name: HitObstacle
+    - Category: Tutorial
+      Name: Jump
+    - Category: Tutorial
+      Name: MinecartFuel
+    - Category: Tutorial
+      Name: PassedJump
+    - Category: Tutorial
+      Name: PassedPart
+    - Category: Tutorial
+      Name: UsedExcavatorFuel
+    - Category: Tutorial
+      Name: UseExcavatorFuel
+    - Category: Tutorial
+      Name: Wall

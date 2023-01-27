@@ -9,6 +9,7 @@ public class ExcavatorFuelCansUI : MonoBehaviour
     [SerializeField] private Sprite noFuel;
     [SerializeField] private List<Image> fuelImages;
     [SerializeField] private Image extraFuel;
+    [SerializeField] private Sprite extraFuelSprite;
 
     private void Start()
     {
@@ -41,7 +42,7 @@ public class ExcavatorFuelCansUI : MonoBehaviour
     {
         if (value)
         {
-            extraFuel.sprite = fuel;
+            extraFuel.sprite = extraFuelSprite;
         }
         else
         {

@@ -45,6 +45,7 @@ public class ParallaxEffect : MonoBehaviour
 
     public void ResetElements()
     {
+        previousCameraPosition = cameraTransform.position;
         foreach(ParallaxElement element in parallaxElements)
         {
             element.Reset();
