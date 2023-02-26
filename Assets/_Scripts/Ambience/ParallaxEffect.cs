@@ -8,6 +8,7 @@ public class ParallaxEffect : MonoBehaviour
 
     private Transform cameraTransform;
     private Vector3 previousCameraPosition;
+    private bool stopParallax;
 
     private void Start()
     {
@@ -19,27 +20,52 @@ public class ParallaxEffect : MonoBehaviour
             element.Init();
         }
     }
-
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        foreach(ParallaxElement element in parallaxElements)
+        //Debug.Log("Camera Positon: " + cameraTransform.position.x + " Previous Camera Position: " + previousCameraPosition.x);
+
+        foreach (ParallaxElement element in parallaxElements)
         {
-            float deltaX = (cameraTransform.position.x - previousCameraPosition.x) * element.ParallaxMult;
-            float moveAmount = cameraTransform.position.x * (1 - element.ParallaxMult);
-            element.ElementTransform.Translate(new Vector3(deltaX, 0, 0));
+            float temp = (cameraTransform.position.x * (1 - element.ParallaxMult));
+            float dist = cameraTransform.position.x * element.ParallaxMult;
 
-            if(moveAmount > element.StartPosition + element.SpriteWidth)
-            {
-                element.ElementTransform.Translate(new Vector3(element.SpriteWidth, 0, 0));
-                element.StartPositionAdd(element.SpriteWidth);
-            }
-            else if (moveAmount < element.StartPosition - element.SpriteWidth)
-            {
-                element.ElementTransform.Translate(new Vector3(-element.SpriteWidth, 0, 0));
-                element.StartPositionAdd(-element.SpriteWidth);
-            }
+            element.ElementTransform.position = new Vector3(element.StartPosition + dist, element.ElementTransform.position.y, element.ElementTransform.position.z);
 
+            if (temp > element.StartPosition + element.SpriteWidth) element.StartPositionAdd(element.SpriteWidth);
+            else if (temp < element.StartPosition - element.SpriteWidth) element.StartPositionAdd(-element.SpriteWidth);
         }
+    }
+
+    //private void LateUpdate()
+    //{
+        //if (!stopParallax)
+        //{
+        //    foreach(ParallaxElement element in parallaxElements)
+        //    {
+        //        float deltaX = (cameraTransform.position.x - previousCameraPosition.x) * element.ParallaxMult;
+        //        float moveAmount = cameraTransform.position.x * (1 - element.ParallaxMult);
+        //        element.ElementTransform.Translate(new Vector3(deltaX, 0, 0));
+
+        //        if (moveAmount > element.StartPosition + element.SpriteWidth)
+        //        {
+        //            element.ElementTransform.Translate(new Vector3(element.SpriteWidth, 0, 0));
+        //            element.StartPositionAdd(element.SpriteWidth);
+        //        }
+        //        else if (moveAmount < element.StartPosition - element.SpriteWidth)
+        //        {
+        //            element.ElementTransform.Translate(new Vector3(-element.SpriteWidth, 0, 0));
+        //            element.StartPositionAdd(-element.SpriteWidth);
+        //        }
+
+        //    }
+        //}
+        
+        //previousCameraPosition = cameraTransform.position;
+    //}
+
+    public void SetStopParallax(bool value)
+    {
+        stopParallax = value;
         previousCameraPosition = cameraTransform.position;
     }
 
@@ -59,7 +85,6 @@ public class ParallaxElement
     [SerializeField] private float parallaxMult;
     [SerializeField] private float spriteWidth;
     [SerializeField] private float startPosition;
-    private List<Vector3> initialElementsPosition = new List<Vector3>();
 
     public Transform ElementTransform { get { return elementTransform; } }
     public float ParallaxMult { get { return parallaxMult; } }
@@ -70,21 +95,12 @@ public class ParallaxElement
     {
         spriteWidth = elementTransform.GetComponentInChildren<SpriteRenderer>().bounds.size.x;
         startPosition = elementTransform.transform.position.x;
-        foreach(Transform child in elementTransform)
-        {
-            initialElementsPosition.Add(child.position);
-        }
     }
 
     public void Reset()
     {
         elementTransform.position = Vector3.zero;
         startPosition = 0;
-
-        for(int i = 0; i < initialElementsPosition.Count; i++)
-        {
-            elementTransform.GetChild(i).position = initialElementsPosition[i];
-        }
     }
 
     public void StartPositionAdd(float add)

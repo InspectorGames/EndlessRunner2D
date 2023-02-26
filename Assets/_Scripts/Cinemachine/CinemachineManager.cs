@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class CinemachineManager : MonoBehaviour
 {
+    public static CinemachineManager Instance;
+
     [SerializeField] private CinemachineVirtualCamera menuCamera;
     [SerializeField] private CinemachineVirtualCamera menuCameraAnim;
     [SerializeField] private CinemachineVirtualCamera trackCamera;
@@ -15,6 +17,14 @@ public class CinemachineManager : MonoBehaviour
     [SerializeField] private CinemachineImpulseSource screenShakeMineWall;
 
     private bool isShakingMineWall = false;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        } 
+    }
 
     private void Update()
     {
@@ -59,7 +69,6 @@ public class CinemachineManager : MonoBehaviour
     {
         isShakingMineWall = false;
     }
-
 
     public void SwitchToMenuCameraAnim()
     {

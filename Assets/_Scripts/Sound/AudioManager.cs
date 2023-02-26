@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public CustomizableAudioClip[] sfxClips;
     public AudioClip[] musicClips;
 
+    private Queue<AudioClip> musicClipsQueue = new Queue<AudioClip>();
     private bool muteSFX = false;
 
     void Awake()
@@ -30,6 +31,21 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if (!musicSource.isPlaying && musicClipsQueue.Count > 0)
+        {
+            if(musicClipsQueue.Count == 1)
+            {
+                musicSource.clip = musicClipsQueue.Dequeue();
+                Debug.Log("Music Clip Looped: " + musicSource.clip.name);
+                musicSource.Play();
+                musicSource.loop = true;
+            }
+        }
+
     }
 
     // Método para reproducir un efecto de sonido
@@ -73,6 +89,7 @@ public class AudioManager : MonoBehaviour
     // Método para reproducir música
     public void PlayMusic(string clipName)
     {
+        musicClipsQueue.Clear();
         // Buscar el clip de audio en el array de clips
         AudioClip clip = Array.Find(musicClips, audio => audio.name == clipName);
 
@@ -87,6 +104,15 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogError("Clip de audio no encontrado: " + clipName);
         }
+    }
+
+    public void PlayMusicLoop(string fullClip, string loopedClip)
+    {
+        musicSource.loop = false;
+        musicClipsQueue.Enqueue(Array.Find(musicClips, audio => audio.name == fullClip));
+        musicClipsQueue.Enqueue(Array.Find(musicClips, audio => audio.name == loopedClip));
+        musicSource.clip = musicClipsQueue.Dequeue();
+        musicSource.Play();
     }
 
     public void StopMusic()

@@ -66,7 +66,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float excavatorDeceleration;
     [SerializeField] private GameObject excavator;
     [SerializeField] private Animator cloud;
-
+    [SerializeField] private Animator drillVDirt;
+    [SerializeField] private Animator drillDirt;
+    [SerializeField] private Animator drill;
+    
 
     [Min(0)] private float currentSpeed;
     private bool isInWallPhase = false;
@@ -99,12 +102,15 @@ public class PlayerMovement : MonoBehaviour
         if (!isInWallPhase)
         {
             TrackHorizontalMovement();
+            
         }
         else
         {
             WallHorizontalMovement();
+            
         }
     }
+
 
     public void SetIsTutorial(bool value)
     {
@@ -149,6 +155,9 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = nextPos;
         SpeedSlow();
+        drillDirt.speed = currentSpeed / excavatorMaxSpeed;
+        drillVDirt.speed = currentSpeed / excavatorMaxSpeed;
+        drill.speed = currentSpeed / excavatorMaxSpeed;
     }
 
     public void EnterWallPhase()
@@ -374,6 +383,7 @@ public class PlayerMovement : MonoBehaviour
             if(gameOverTimer >= gameOverSeconds)
             {
                 EventManager.OnGameOverCountdownStarted();
+                CinemachineManager.Instance.StopScreenShakeWallMine();
             }
             gameOverTimer -= Time.deltaTime;
             if(gameOverTimer <= 0)
@@ -436,6 +446,14 @@ public class PlayerMovement : MonoBehaviour
     public void TutorialFastFall()
     {
         SwitchState(FastFallingState);
+    }
+
+    public void PreventiveFastFall()
+    {
+        if(state != PlayerVerticalMovementState.InGround)
+        {
+            SwitchState(FastFallingState);
+        }
     }
 
     public void TutorialUseExcavatorFuel()

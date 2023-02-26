@@ -33,13 +33,11 @@ public class MapGenerator : MonoBehaviour
     [Space]
 
     [Header("Map Settings")]
-    [SerializeField] private int verticalValidMapSize;
+    [SerializeField] private int verticalMapSize;
 
     [Space]
 
     [Header("Generation")]
-    [SerializeField] private Tilemap testTilemap;
-    [SerializeField] private Tile dirtTile;
     [SerializeField] private GameObject pfMFuel;
     [SerializeField] private GameObject pfEFuel;
     [SerializeField] private GameObject excavatorItem;
@@ -85,7 +83,7 @@ public class MapGenerator : MonoBehaviour
         ClearAllMapObjects();
         if (!haveKeyPos)
         {
-            for (int i = 1; i < verticalValidMapSize; i += 2)
+            for (int i = 1; i < verticalMapSize; i += 2)
             {
                 keyPositions.Add(i);
             }
@@ -168,7 +166,7 @@ public class MapGenerator : MonoBehaviour
         //    }
         //}
 
-        wallI = Instantiate(wallPf, new Vector3(wallX, 3.5f, -1), Quaternion.identity);
+        wallI = Instantiate(wallPf, new Vector3(wallX, 3f, -1), Quaternion.identity);
     }
 
     private void Pass_Obstacles(int horizontalMapSize)
@@ -179,7 +177,7 @@ public class MapGenerator : MonoBehaviour
         while (horizontalPosition < horizontalMapSize)
         {
             ObstacleSO obstacle;
-            List<int> keyPos = new List<int>();
+            List<int> keyPos;
             int verticalPosition = 0;
             switch (SelectObstacleType())
             {
@@ -188,16 +186,6 @@ public class MapGenerator : MonoBehaviour
                     obstacle = groundObstacles[Random.Range(0, groundObstacles.Count)];
                     keyPos = obstacle.keyPos;
                     break;
-                //case ObstacleType.Air:
-                //    obstacle = airObstacles[Random.Range(0, airObstacles.Count)];
-                //    verticalPosition = keyPositions[Random.Range(0, keyPositions.Count)];
-
-                //    for(int i = verticalPosition; i < obstacle.size + verticalPosition; i++)
-                //    {
-                //        if (keyPositions.Contains(i)) keyPos.Add(i);
-                //    }
-
-                //    break;
                 case ObstacleType.TopDown:
                     obstacle = topDownObstacles[Random.Range(0, topDownObstacles.Count)];
                     keyPos = obstacle.keyPos;
@@ -214,23 +202,17 @@ public class MapGenerator : MonoBehaviour
 
     private ObstacleType SelectObstacleType()
     {
-        List<ObstacleType> types = new List<ObstacleType>();
-        for(int i = 0; i < groundObstacleProb; i++)
+        int groundObstacleCount = groundObstacleProb;
+        int topDownObstacleCount = topDownObstacleProb;
+
+        ObstacleType[] obstacleTypes = new ObstacleType[groundObstacleCount + topDownObstacleCount];
+
+        for (int i = 0; i < obstacleTypes.Length; i++)
         {
-            types.Add(ObstacleType.Ground);
+            obstacleTypes[i] = (i < groundObstacleCount) ? ObstacleType.Ground : ObstacleType.TopDown;
         }
 
-        //for (int i = 0; i < airObstacleProb; i++)
-        //{
-        //    types.Add(ObstacleType.Air);
-        //}
-
-        for (int i = 0; i < topDownObstacleProb; i++)
-        {
-            types.Add(ObstacleType.TopDown);
-        }
-
-        return types[Random.Range(0, types.Count)];
+        return obstacleTypes[Random.Range(0, obstacleTypes.Length)];
     }
 
     private void Pass_EFuel_Positions(int horizontalMapSize)
@@ -304,7 +286,7 @@ public class MapGenerator : MonoBehaviour
                                 if(checkUp)
                                 {
                                     desiredPosition += 2;
-                                    if(desiredPosition > verticalValidMapSize) checkUp = false;
+                                    if(desiredPosition > verticalMapSize) checkUp = false;
                                 }
                                 else
                                 {

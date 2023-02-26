@@ -1,0 +1,587 @@
+fileFormatVersion: 2
+guid: 67160a3ed30113841993d329e12b452e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cartFinal3Ani_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 2202
+        width: 596
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffafc67f07f25e46aa5e2dec94d4aa0
+      internalID: 1565293316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_1
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 2202
+        width: 593
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0f889618c5d8ef45bf5fa847c79f686
+      internalID: -767968902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_2
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 2202
+        width: 593
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd55347fa1c622d40b25304fb48e2365
+      internalID: -755443062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_3
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 2202
+        width: 590
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f55c46068b36c488c881f1f8aae365
+      internalID: -1671758821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_4
+      rect:
+        serializedVersion: 2
+        x: 3776
+        y: 2202
+        width: 588
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9246b6003c101646b6adac107dbfe8b
+      internalID: -30269855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_5
+      rect:
+        serializedVersion: 2
+        x: 4701
+        y: 2202
+        width: 587
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8256ae3afbd9c964fad0630f8f885e25
+      internalID: 180370412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_6
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1470
+        width: 586
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e3d486d75b94e4b8b49618e3c2c06e
+      internalID: -597692189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_7
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 1470
+        width: 588
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97b4c773663a914394d6aa55d9158c2
+      internalID: 494975302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_8
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 1470
+        width: 590
+        height: 653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88076bd4adb46c498b5d9c2f8266f6c
+      internalID: 1799122568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_9
+      rect:
+        serializedVersion: 2
+        x: 2847
+        y: 1470
+        width: 591
+        height: 653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a628a524b157141bada0a410ca1026
+      internalID: -169934291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_10
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 1470
+        width: 596
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1793926db8f3ab4e93dc045d4964927
+      internalID: -1420957334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_11
+      rect:
+        serializedVersion: 2
+        x: 4690
+        y: 1473
+        width: 601
+        height: 647
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a40b9bfef687fe4981ff19f914565fa
+      internalID: -510524390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 744
+        width: 604
+        height: 645
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485be6f8f48e7c44392c8d931cf81aaa
+      internalID: 1810547069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_13
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 744
+        width: 602
+        height: 645
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1f118cee8762a4ba4833a029c8201a
+      internalID: -647676866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_14
+      rect:
+        serializedVersion: 2
+        x: 1915
+        y: 741
+        width: 604
+        height: 651
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf5554c20ac22d0469affc78059d06a0
+      internalID: -1370593135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_15
+      rect:
+        serializedVersion: 2
+        x: 2841
+        y: 738
+        width: 602
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788270600681b304fb72a9385577ac93
+      internalID: 1394318229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_16
+      rect:
+        serializedVersion: 2
+        x: 3768
+        y: 736
+        width: 602
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3964933a4b68cd9438087f5e23f287a2
+      internalID: 1412024870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_17
+      rect:
+        serializedVersion: 2
+        x: 4695
+        y: 736
+        width: 599
+        height: 658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d95f5db4fdddd4c86794538ad93c9c
+      internalID: -280113315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 4
+        width: 596
+        height: 657
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1758f16144aef2248a4b52896f9d9b33
+      internalID: 992551135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cartFinal3Ani_19
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 7
+        width: 597
+        height: 653
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3584649b07e4e934d83e59fc8ad5cc23
+      internalID: 1768321718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      cartFinal3Ani_14: -1370593135
+      cartFinal3Ani_1: -767968902
+      cartFinal3Ani_7: 494975302
+      cartFinal3Ani_8: 1799122568
+      cartFinal3Ani_3: -1671758821
+      cartFinal3Ani_9: -169934291
+      cartFinal3Ani_16: 1412024870
+      cartFinal3Ani_0: 1565293316
+      cartFinal3Ani_17: -280113315
+      cartFinal3Ani_19: 1768321718
+      cartFinal3Ani_11: -510524390
+      cartFinal3Ani_12: 1810547069
+      cartFinal3Ani_10: -1420957334
+      cartFinal3Ani_13: -647676866
+      cartFinal3Ani_18: 992551135
+      cartFinal3Ani_2: -755443062
+      cartFinal3Ani_6: -597692189
+      cartFinal3Ani_4: -30269855
+      cartFinal3Ani_5: 180370412
+      cartFinal3Ani_15: 1394318229
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

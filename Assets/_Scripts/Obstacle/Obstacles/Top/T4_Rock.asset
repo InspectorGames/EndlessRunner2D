@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba06f01a544b6d45883587d9ba80afa, type: 3}
   m_Name: T4_Rock
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6760612388069492080, guid: 63ce17f82d5fe0b4593b9a526a4822b0, type: 3}
+  prefab: {fileID: 6760612388069492080, guid: b1d4e8dfe2acca446b61dbad1ad70331, type: 3}
   keyPos: 0300000005000000
   size: 0

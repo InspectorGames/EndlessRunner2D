@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
         circleCameraAnimator.gameObject.SetActive(true);
         circleCameraAnimator.Play("PlayerCircleClose");
         AudioManager.instance.StopMusic();
-        AudioManager.instance.PlayMusic("ost8");
+        AudioManager.instance.PlayMusicLoop("ostA", "ostB");
         EventManager.OnGameRestarting();
         StartCoroutine(WaitRestartAnimation());
     }
@@ -228,7 +228,6 @@ public class GameManager : MonoBehaviour
 
         ResetGame(true);
         cinemachineManager.SwitchToMenuCamera();
-        AudioManager.instance.StopMusic();
         AudioManager.instance.PlayMusic("menuv2");
 
         EventManager.OnMainMenuLoaded();
@@ -237,11 +236,11 @@ public class GameManager : MonoBehaviour
     private void HandleMainMenuAnimation()
     {
         AudioManager.instance.StopMusic();
-        AudioManager.instance.PlayMusic("ost8");
+        AudioManager.instance.PlayMusicLoop("ostA","ostB");
 
         blackScreen.SetActive(true);
         circlePlayerAnimator.gameObject.SetActive(true);
-        circlePlayerAnimator.Play("PlayerCircleClose");
+        circlePlayerAnimator.Play("PlayerCircleCloseMainMenu");
         playerMovement.SetCanMove(true);
         cinemachineManager.SwitchToMenuCameraAnim();
     }
@@ -251,8 +250,9 @@ public class GameManager : MonoBehaviour
         circleCameraAnimator.gameObject.SetActive(false);
         circlePlayerAnimator.gameObject.SetActive(true);
         circlePlayerAnimator.Play("PlayerCircleOpen");
+        parallaxEffect.SetStopParallax(false);
 
-        //Initial Configurations
+        //initial configurations
         mapGenerator.GenerateMap(enterGameLength, trackLength, trackLength + 50, false);
         //backgroundController.NextBackground(enterGameLength, enterWallEnd + enterTrackLength);
 
@@ -317,7 +317,7 @@ public class GameManager : MonoBehaviour
 
         //Stop consuming minecart fuel
         playerMovement.StopConsumingMFuel(true);
-        playerMovement.TutorialFastFall();
+        playerMovement.PreventiveFastFall();
 
         EventManager.OnEnterWall();
     }
@@ -434,6 +434,7 @@ public class GameManager : MonoBehaviour
         gameRecord.ResetCurrentScore();
         //Reset background parallaxelements
         parallaxEffect.ResetElements();
+        parallaxEffect.SetStopParallax(true);
         cinemachineManager.StopScreenShakeWallMine();
 
         //Reset player movement values
@@ -445,6 +446,7 @@ public class GameManager : MonoBehaviour
         {
             playerMovement.ResetPlayerMovement(Vector2.zero);
         }
+        parallaxEffect.SetStopParallax(true);
 
         //Reset map generation parameters
         ResetEndPositions();
@@ -532,6 +534,7 @@ public class GameRecord
     public void IncrementCurrentScore()
     {
         currentScore++;
+        AudioManager.instance.PlaySFX("wallPoint");
         EventManager.OnWallScored();
     }
 

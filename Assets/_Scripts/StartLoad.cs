@@ -15,7 +15,7 @@ public class StartLoad : MonoBehaviour
         }
         else
         {
-            sceneToLoad = "SampleScene";
+            sceneToLoad = "GameScene";
         }
     }
 
