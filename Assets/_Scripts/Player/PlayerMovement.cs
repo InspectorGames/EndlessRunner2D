@@ -171,6 +171,8 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = initialExcavatorSpeed;
         }
 
+        CinemachineManager.Instance.StartScreenShakeWallMine();
+
         isInWallPhase = true;
         StopConsumingMFuel(false);
         CalculateExcavatorFuel();
@@ -178,6 +180,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ExitWallPhase()
     {
+        CinemachineManager.Instance.StopScreenShakeWallMine();
         HideExcavatorEffect();
         currentSpeed = initialMinecartSpeed;
         isInWallPhase = false;
@@ -197,12 +200,12 @@ public class PlayerMovement : MonoBehaviour
         if (currentExcavatorFuelCans >= maxExcavatorFuelCans)
         {
             hasExtraExcavatorFuel = true;
-            AudioManager.instance.PlaySFX("pickupfuel");
+            AudioManager.instance.PlaySFX("pickupbluefuel");
         }
         else
         {
             currentExcavatorFuelCans += 1;
-            AudioManager.instance.PlaySFX("pickupfuel");
+            AudioManager.instance.PlaySFX("pickupbluefuel");
         }
     }
 

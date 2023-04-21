@@ -325,7 +325,7 @@ public class GameManager : MonoBehaviour
     {
         //Give back player input
         BindingManager.Instance.PlayerInput(true);
-        cinemachineManager.StartScreenShakeWallMine();
+        //cinemachineManager.StartScreenShakeWallMine();
 
         //Generate new set of MapObjects
         mapGenerator.GenerateMap(enterTrackEnd, trackLength, enterTrackEnd + trackLength + 50, true);
@@ -485,6 +485,14 @@ public class GameManager : MonoBehaviour
         SaveSystem.SaveGameRecord(gameRecord);
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        if(pause)
+        {
+            SaveSystem.SaveGameRecord(gameRecord);
+        }
+    }
+
     public void PauseMenuLoaded()
     {
         EventManager.OnPauseMenuLoaded();
@@ -534,7 +542,7 @@ public class GameRecord
     public void IncrementCurrentScore()
     {
         currentScore++;
-        AudioManager.instance.PlaySFX("wallPoint");
+        AudioManager.instance.PlaySFX("score");
         EventManager.OnWallScored();
     }
 

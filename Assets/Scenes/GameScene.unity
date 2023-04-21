@@ -2926,14 +2926,14 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 43116637}
-  m_Father: {fileID: 1798548811}
-  m_RootOrder: 6
+  m_Father: {fileID: 1786725873}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -125, y: 125}
   m_SizeDelta: {x: 250, y: 250}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91463480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3201,12 +3201,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -50, y: 50, z: 0}
-      ToValue: {x: -50, y: 50, z: 0}
+      FromValue: {x: -125, y: 125, z: 0}
+      ToValue: {x: -125, y: 125, z: 0}
       CurrentValue: {x: -50, y: 50, z: 0}
       Enabled: 1
       AnimationType: 5
-      StartPosition: {x: -50, y: 50, z: 0}
+      StartPosition: {x: -125, y: 125, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -3471,12 +3471,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -50, y: 50, z: 0}
-      ToValue: {x: -50, y: 52, z: 0}
-      CurrentValue: {x: -50, y: 50, z: 0}
+      FromValue: {x: -125, y: 125, z: 0}
+      ToValue: {x: -125, y: 127, z: 0}
+      CurrentValue: {x: -125, y: 125, z: 0}
       Enabled: 0
       AnimationType: 6
-      StartPosition: {x: -50, y: 50, z: 0}
+      StartPosition: {x: -125, y: 125, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -3741,12 +3741,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -50, y: 50, z: 0}
-      ToValue: {x: -50, y: 58, z: 0}
-      CurrentValue: {x: -50, y: 50, z: 0}
+      FromValue: {x: -125, y: 125, z: 0}
+      ToValue: {x: -125, y: 133, z: 0}
+      CurrentValue: {x: -125, y: 125, z: 0}
       Enabled: 0
       AnimationType: 6
-      StartPosition: {x: -50, y: 50, z: 0}
+      StartPosition: {x: -125, y: 125, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -4011,12 +4011,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -50, y: 50, z: 0}
-      ToValue: {x: -50, y: 52, z: 0}
-      CurrentValue: {x: -50, y: 50, z: 0}
+      FromValue: {x: -125, y: 125, z: 0}
+      ToValue: {x: -125, y: 127, z: 0}
+      CurrentValue: {x: -125, y: 125, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: -50, y: 50, z: 0}
+      StartPosition: {x: -125, y: 125, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -4281,12 +4281,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -50, y: 50, z: 0}
-      ToValue: {x: -50, y: 50, z: 0}
+      FromValue: {x: -125, y: 125, z: 0}
+      ToValue: {x: -125, y: 125, z: 0}
       CurrentValue: {x: 0, y: 0, z: 0}
       Enabled: 1
       AnimationType: 5
-      StartPosition: {x: -50, y: 50, z: 0}
+      StartPosition: {x: -125, y: 125, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -7844,6 +7844,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &219472833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219472834}
+  m_Layer: 5
+  m_Name: btnPlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &219472834
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219472833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7565618634817416786}
+  m_Father: {fileID: 1590312682}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &221794572
 GameObject:
   m_ObjectHideFlags: 0
@@ -8264,12 +8301,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0, y: 0, z: 0}
-      ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: -2340, y: 2887, z: 0}
+      ToValue: {x: -2683, y: 2887, z: 0}
+      CurrentValue: {x: -2683, y: 2887, z: 0}
       Enabled: 1
       AnimationType: 0
-      StartPosition: {x: 0, y: 0, z: 0}
+      StartPosition: {x: -2683, y: 2887, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -8333,7 +8370,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 0
@@ -8397,7 +8434,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 1, y: 1, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 0
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 0
@@ -8461,7 +8498,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 0
@@ -8534,12 +8571,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0, y: 0, z: 0}
-      ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: -2683, y: 2887, z: 0}
+      ToValue: {x: 2340, y: 2887, z: 0}
+      CurrentValue: {x: 2340, y: 2887, z: 0}
       Enabled: 1
       AnimationType: 1
-      StartPosition: {x: 0, y: 0, z: 0}
+      StartPosition: {x: -2683, y: 2887, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -8603,7 +8640,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 0
@@ -8667,7 +8704,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 1, y: 1, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 0
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 0
@@ -8731,7 +8768,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 0
@@ -11337,12 +11374,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -1236.24, y: -439.70013, z: 0}
-      ToValue: {x: 1087.2001, y: -439.70013, z: 0}
-      CurrentValue: {x: 1087.2001, y: -439.70013, z: 0}
+      FromValue: {x: -2406.24, y: -439.70013, z: 0}
+      ToValue: {x: -162, y: -439.70013, z: 0}
+      CurrentValue: {x: -162, y: -439.70013, z: 0}
       Enabled: 0
       AnimationType: 0
-      StartPosition: {x: 1087.2001, y: -439.70013, z: 0}
+      StartPosition: {x: -162, y: -439.70013, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -11607,12 +11644,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 1087.2001, y: -439.70013, z: 0}
-      ToValue: {x: 1236.24, y: -439.70013, z: 0}
-      CurrentValue: {x: 1087.2001, y: -439.70013, z: 0}
+      FromValue: {x: -162, y: -439.70013, z: 0}
+      ToValue: {x: 66.23999, y: -439.70013, z: 0}
+      CurrentValue: {x: -162, y: -439.70013, z: 0}
       Enabled: 0
       AnimationType: 1
-      StartPosition: {x: 1087.2001, y: -439.70013, z: 0}
+      StartPosition: {x: -162, y: -439.70013, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -16674,7 +16711,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 2
+    OrthographicSize: 1.8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -18762,6 +18799,12 @@ MonoBehaviour:
     volume: 1
   - clip: {fileID: 8300000, guid: ebc1dfef9bcd56e438c6a1af3de2f966, type: 3}
     volume: 1
+  - clip: {fileID: 8300000, guid: af3ac875f132f1c438da2db4f0cf5df9, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 884b10dc3091b0346bbe1f5826d84046, type: 3}
+    volume: 1
+  - clip: {fileID: 8300000, guid: 91925fbe8fdae174d865372e9078c672, type: 3}
+    volume: 0.8
   musicClips:
   - {fileID: 8300000, guid: 4533c93646ef03348beaf3ac724ccfcc, type: 3}
   - {fileID: 8300000, guid: f66cafe1edc90e4419ee26eedf7bd595, type: 3}
@@ -18769,6 +18812,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 692e78e076f68d643a29b33075cb4c4a, type: 3}
   - {fileID: 8300000, guid: 435a27e32c7c6924a9bd2bc4a34936b0, type: 3}
   - {fileID: 8300000, guid: cc32a61a007ef8d4aa7c0435fa49e13e, type: 3}
+  drill: {fileID: 3047361055800373196}
 --- !u!1 &883630945
 GameObject:
   m_ObjectHideFlags: 0
@@ -23189,12 +23233,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0, y: 0, z: 0}
-      ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
-      Enabled: 1
+      FromValue: {x: -2340, y: 1621.873, z: 0}
+      ToValue: {x: -2690.011, y: 1621.873, z: 0}
+      CurrentValue: {x: -2690.011, y: 1621.873, z: 0}
+      Enabled: 0
       AnimationType: 0
-      StartPosition: {x: 0, y: 0, z: 0}
+      StartPosition: {x: -2690.011, y: 1621.873, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -23258,7 +23302,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 0
@@ -23322,7 +23366,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 1, y: 1, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 0
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 0
@@ -23386,7 +23430,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 0
@@ -23459,12 +23503,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 0, y: 0, z: 0}
-      ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
-      Enabled: 1
+      FromValue: {x: -2690.011, y: 1621.873, z: 0}
+      ToValue: {x: 2340, y: 1621.873, z: 0}
+      CurrentValue: {x: -2690.011, y: 1621.873, z: 0}
+      Enabled: 0
       AnimationType: 1
-      StartPosition: {x: 0, y: 0, z: 0}
+      StartPosition: {x: -2690.011, y: 1621.873, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -23528,7 +23572,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 0, y: 0, z: 0}
       ToValue: {x: 0, y: 0, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: -0, y: 0, z: 0}
       Enabled: 0
       StartRotation: {x: -0, y: 0, z: 0}
       FromReferenceValue: 0
@@ -23592,7 +23636,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 1, y: 1, z: 1}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 0
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 0
@@ -23656,7 +23700,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: 1
       ToValue: 1
-      CurrentValue: 0
+      CurrentValue: 1
       Enabled: 0
       StartAlpha: 1
       FromReferenceValue: 0
@@ -26246,10 +26290,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 880534309}
     m_Modifications:
-    - target: {fileID: 6438664552880525404, guid: e460d12158c9d594cb7107938e74f7f5, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6438664552880525406, guid: e460d12158c9d594cb7107938e74f7f5, type: 3}
       propertyPath: m_Name
       value: MusicSource
@@ -28431,7 +28471,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1431565348}
-  - {fileID: 7565618634817416786}
+  - {fileID: 219472834}
   - {fileID: 2093763020}
   - {fileID: 1068242440}
   - {fileID: 667564366}
@@ -28554,7 +28594,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1010358717}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1652148097
 Animator:
@@ -30041,6 +30081,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 8300000, guid: f6cbe87a77eec594d822afc2d2e9ac86, type: 3}
+--- !u!1 &1786725872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1786725873}
+  m_Layer: 5
+  m_Name: btnFuel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1786725873
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786725872}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 91463478}
+  m_Father: {fileID: 1798548811}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1 &1788990164
 GameObject:
   m_ObjectHideFlags: 0
@@ -30340,7 +30417,7 @@ RectTransform:
   - {fileID: 1525646943}
   - {fileID: 1292927107}
   - {fileID: 1822397593}
-  - {fileID: 91463478}
+  - {fileID: 1786725873}
   - {fileID: 5815974749690188738}
   m_Father: {fileID: 1971330776}
   m_RootOrder: 0
@@ -33247,12 +33324,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -1919.9999, y: 1.4395752, z: 0}
-      ToValue: {x: 4.7105713, y: 1.4395752, z: 0}
-      CurrentValue: {x: 4.7105713, y: 1.4395752, z: 0}
+      FromValue: {x: -2340, y: 1620.7686, z: 0}
+      ToValue: {x: 2343.736, y: 1620.7686, z: 0}
+      CurrentValue: {x: 2343.736, y: 1620.7686, z: 0}
       Enabled: 0
       AnimationType: 0
-      StartPosition: {x: 4.7105713, y: 1.4395752, z: 0}
+      StartPosition: {x: 2343.736, y: 1620.7686, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -33517,12 +33594,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 4.7105713, y: 1.4395752, z: 0}
-      ToValue: {x: 1919.9999, y: 1.4395752, z: 0}
-      CurrentValue: {x: 0, y: 0, z: 0}
+      FromValue: {x: 2343.736, y: 1620.7686, z: 0}
+      ToValue: {x: 2340, y: 1620.7686, z: 0}
+      CurrentValue: {x: 2343.736, y: 1620.7686, z: 0}
       Enabled: 0
       AnimationType: 1
-      StartPosition: {x: 4.7105713, y: 1.4395752, z: 0}
+      StartPosition: {x: 2343.736, y: 1620.7686, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -41010,9 +41087,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 410994011065462221, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 460169761729239101, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2078765204308503458, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2078765204308503458, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41100,10 +41185,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8285278749320337814, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
+--- !u!82 &3047361055800373196 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6418669387928485516, guid: 72fa6426264c6ab4c8a1cf674542b874, type: 3}
+  m_PrefabInstance: {fileID: 3047361055800373195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3106137934970735299
 GameObject:
   m_ObjectHideFlags: 0
@@ -46310,19 +46400,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7565618634817416785}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1590312682}
-  m_RootOrder: 1
+  m_Father: {fileID: 219472834}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100, y: 50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 204.07141, y: 160.57143}
   m_SizeDelta: {x: 308.14282, y: 321.14285}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7565618634817416787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46440,12 +46530,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -147.8999, y: -11.699219, z: 0}
-      ToValue: {x: -147.8999, y: -11.699219, z: 0}
+      FromValue: {x: 204.07141, y: 160.57143, z: 0}
+      ToValue: {x: 204.07141, y: 160.57143, z: 0}
       CurrentValue: {x: -147.8999, y: -11.699219, z: 0}
       Enabled: 1
       AnimationType: 5
-      StartPosition: {x: -147.8999, y: -11.699219, z: 0}
+      StartPosition: {x: 204.07141, y: 160.57143, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -46571,7 +46661,7 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: 1.2, y: 1.2, z: 1}
+      FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 1, y: 1, z: 1}
       CurrentValue: {x: 1, y: 1, z: 1}
       Enabled: 1
@@ -46710,12 +46800,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -147.8999, y: -11.699219, z: 0}
-      ToValue: {x: -147.8999, y: -9.699219, z: 0}
-      CurrentValue: {x: -147.8999, y: -11.699219, z: 0}
+      FromValue: {x: 204.07141, y: 160.57143, z: 0}
+      ToValue: {x: 204.07141, y: 162.57143, z: 0}
+      CurrentValue: {x: 204.07141, y: 160.57143, z: 0}
       Enabled: 0
       AnimationType: 6
-      StartPosition: {x: -147.8999, y: -11.699219, z: 0}
+      StartPosition: {x: 204.07141, y: 160.57143, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -46980,12 +47070,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -147.8999, y: -11.699219, z: 0}
-      ToValue: {x: -147.8999, y: -3.6992188, z: 0}
-      CurrentValue: {x: -147.8999, y: -11.699219, z: 0}
+      FromValue: {x: 204.07141, y: 160.57143, z: 0}
+      ToValue: {x: 204.07141, y: 168.57143, z: 0}
+      CurrentValue: {x: 204.07141, y: 160.57143, z: 0}
       Enabled: 0
       AnimationType: 6
-      StartPosition: {x: -147.8999, y: -11.699219, z: 0}
+      StartPosition: {x: 204.07141, y: 160.57143, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -47113,7 +47203,7 @@ MonoBehaviour:
         FadeOutShake: 0
       FromValue: {x: 1, y: 1, z: 1}
       ToValue: {x: 0.9, y: 0.9, z: 1}
-      CurrentValue: {x: 0.7, y: 0.7, z: 1}
+      CurrentValue: {x: 0.9, y: 0.9, z: 1}
       Enabled: 1
       StartScale: {x: 1, y: 1, z: 1}
       FromReferenceValue: 0
@@ -47250,12 +47340,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -147.8999, y: -11.699219, z: 0}
-      ToValue: {x: -147.8999, y: -9.699219, z: 0}
-      CurrentValue: {x: -147.8999, y: -11.699219, z: 0}
+      FromValue: {x: 204.07141, y: 160.57143, z: 0}
+      ToValue: {x: 204.07141, y: 162.57143, z: 0}
+      CurrentValue: {x: 204.07141, y: 160.57143, z: 0}
       Enabled: 0
       AnimationType: 4
-      StartPosition: {x: -147.8999, y: -11.699219, z: 0}
+      StartPosition: {x: 204.07141, y: 160.57143, z: 0}
       FromReferenceValue: 0
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}
@@ -47520,12 +47610,12 @@ MonoBehaviour:
         Vibration: 8
         Elasticity: 1
         FadeOutShake: 0
-      FromValue: {x: -147.8999, y: -11.699219, z: 0}
-      ToValue: {x: -147.8999, y: -11.699219, z: 0}
+      FromValue: {x: 204.07141, y: 160.57143, z: 0}
+      ToValue: {x: 204.07141, y: 160.57143, z: 0}
       CurrentValue: {x: 0, y: 0, z: 0}
       Enabled: 1
       AnimationType: 5
-      StartPosition: {x: -147.8999, y: -11.699219, z: 0}
+      StartPosition: {x: 204.07141, y: 160.57143, z: 0}
       FromReferenceValue: 1
       ToReferenceValue: 0
       FromCustomValue: {x: 0, y: 0, z: 0}

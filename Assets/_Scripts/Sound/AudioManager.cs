@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     private Queue<AudioClip> musicClipsQueue = new Queue<AudioClip>();
     private bool muteSFX = false;
 
+    [SerializeField] private AudioSource drill; 
+
     void Awake()
     {
         // Implementación del patrón singleton
@@ -39,14 +41,29 @@ public class AudioManager : MonoBehaviour
         {
             if(musicClipsQueue.Count == 1)
             {
+                StartCoroutine(DelayedLoop()); // Iniciar una corrutina de retraso
+            }
+            else
+            {
                 musicSource.clip = musicClipsQueue.Dequeue();
-                Debug.Log("Music Clip Looped: " + musicSource.clip.name);
                 musicSource.Play();
-                musicSource.loop = true;
             }
         }
 
     }
+
+    private IEnumerator DelayedLoop()
+    {
+        yield return new WaitForSeconds(0.1f); // agregar un retraso de 0,1 segundos
+        if(musicClipsQueue.Count > 0)
+        {
+            musicSource.clip = musicClipsQueue.Dequeue();
+            Debug.Log("Music Clip Looped: " + musicSource.clip.name);
+            musicSource.Play();
+            musicSource.loop = true;
+        }
+    }
+
 
     // Método para reproducir un efecto de sonido
     public void PlaySFX(string clipName)
@@ -74,6 +91,7 @@ public class AudioManager : MonoBehaviour
 
     public void MuteSFX(bool mute)
     {
+        drill.mute = mute;
         muteSFX = mute;
     }
 

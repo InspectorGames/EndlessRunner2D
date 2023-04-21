@@ -98,7 +98,7 @@ public class TutorialManager : MonoBehaviour
         playerMovement.SetIsTutorial(true);
         playerMovement.EnablePlayerMovementSFX(true);
         uiController.SetIsTutorial(true);
-        AudioManager.instance.PlayMusic("tutorialv2");
+        AudioManager.instance.PlayMusic("tutorialv3");
     }
 
     public void HideCurtain()

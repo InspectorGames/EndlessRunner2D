@@ -11,7 +11,7 @@ public class PlayerCollisions : MonoBehaviour
             case "Obstacle":
                 EventManager.OnObstacleHitted();
                 collision.GetComponentInChildren<Animator>().Play("Hit");
-                AudioManager.instance.PlaySFX("hit");
+                AudioManager.instance.PlaySFX("hit2");
                 collision.tag = "HittedObstacle";
                 break;
             case "MFuel":
